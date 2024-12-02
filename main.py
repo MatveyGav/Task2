@@ -3,7 +3,7 @@ import random
 from PyQt6.QtWidgets import QApplication, QMainWindow, QGraphicsScene, QGraphicsEllipseItem
 from PyQt6 import uic
 from PyQt6.QtGui import QBrush, QColor
-from PyQt6.QtCore import Qt, QRectF
+from PyQt6.QtCore import QRectF
 
 class CircleWindow(QMainWindow):
     def __init__(self):
@@ -24,9 +24,12 @@ class CircleWindow(QMainWindow):
         x = random.randint(0, self.graphicsView.width() - radius * 2)
         y = random.randint(0, self.graphicsView.height() - radius * 2)
 
+        # Генерация случайного цвета
+        color = QColor(random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+
         # Создание окружности
         circle = QGraphicsEllipseItem(QRectF(x, y, radius * 2, radius * 2))
-        circle.setBrush(QBrush(QColor("yellow")))
+        circle.setBrush(QBrush(color))
         self.scene.addItem(circle)
 
 if __name__ == "__main__":
